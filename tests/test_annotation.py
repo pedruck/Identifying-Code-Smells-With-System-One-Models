@@ -188,6 +188,8 @@ def test_agreement_adjudication_and_finalize(batch, tmp_path):
     assert pd.read_csv(os.path.join(out, "adjudication.csv"))["adjudicator"].tolist() == ["A+B"]
     ev = annotation.finalize(out, SMELLS, ["A", "B"], parquet, gate_b)
     assert ev["unresolved_adjudications"] == 0 and ev == json.load(open(gate_b))
+    assert ev["human_gold"] and ev["machine_reviewers"] == []
+    assert annotation.is_machine("llm1") and not annotation.is_machine("A")
     df = annotation.decode_frame(pd.read_parquet(parquet))
     assert validate_frame(pd.read_parquet(parquet)) == []
     assert "partition" not in df.columns and "stratum" not in df.columns

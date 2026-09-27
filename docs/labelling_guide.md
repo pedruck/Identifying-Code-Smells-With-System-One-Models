@@ -6,6 +6,14 @@ defined only in [`annotation_rubric.md`](annotation_rubric.md) (`rubric/1`); thi
 
 All commands run from the repository root. Replace `stage1` with `stage2` for the Stage 2 languages and smells.
 
+## LLM-first variant (current set-up)
+
+Until a human reviewer B is available, an agent labels first as machine rater `llm1` and A reviews later:
+draw batches with `--reviewers llm1,A` (the first id receives all train/val items). Reviewer ids starting with
+`llm` are recorded as machine raters; `finalize` writes `machine_reviewers` and `human_gold: false`, and Gate B
+then refuses primary test scoring, because an LLM-assisted test set is silver, not human gold. The agent-side
+procedure is the company skills `code-smell-labelling` and `code-smell-labelling-ops`.
+
 ## 0. Roles and ground rules
 
 - **Operator** (A): runs the commands below and holds `KEY_do_not_share.csv`.

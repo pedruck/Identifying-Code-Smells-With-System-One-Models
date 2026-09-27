@@ -57,7 +57,14 @@ BANDS = {
 }
 DEFAULT_TARGETS = {"test": {"likely_positive": 35, "borderline": 20, "likely_negative": 35},
                    "trainval": {"likely_positive": 60, "borderline": 30, "likely_negative": 60}}
+# Reviewer ids starting with "llm" are machine raters (e.g. ``llm1``).  Their labels are recorded, but an
+# LLM-assisted test set is silver, not human gold: Gate B refuses it (see gates.gate_b_status).
+MACHINE_REVIEWER = re.compile(r"^llm", re.IGNORECASE)
 SHEET_FIELDS = ["item_id", "language", "lines", "effective_loc", "parameter_count", "max_nesting"]
+
+
+def is_machine(reviewer: str) -> bool:
+    return bool(MACHINE_REVIEWER.match(reviewer))
 
 
 def _h(*parts) -> str:
@@ -459,6 +466,8 @@ def finalize(batch_dir: str, smells, reviewers: list[str], out_parquet: str, gat
     tv = key[key["partition"] == "trainval"]
     evidence = {
         "rubric_version": rubric.RUBRIC_VERSION, "annotation_version": ANNOTATION_VERSION, "reviewers": reviewers,
+        "machine_reviewers": [r for r in reviewers if is_machine(r)],
+        "human_gold": not any(is_machine(r) for r in reviewers),
         "test_kappa": test_k, "raw_agreement": {p: {s: v["raw_agreement"] for s, v in d.items()}
                                                 for p, d in agr["by_partition"].items()},
         "trainval_kappa": {s: agr["by_partition"]["trainval"][s]["kappa"] for s in smells},

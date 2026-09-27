@@ -67,6 +67,9 @@ def gate_b_status(path: str | None, smells, min_test_kappa: float = DEFAULT_MIN_
     reasons = []
     if ev.get("rubric_version") != rubric.RUBRIC_VERSION:
         reasons.append(f"evidence rubric {ev.get('rubric_version')!r} != frozen {rubric.RUBRIC_VERSION!r}")
+    if ev.get("machine_reviewers"):
+        reasons.append(f"machine reviewer(s) {ev['machine_reviewers']} labelled the test set: LLM-assisted silver "
+                       f"labels, not human gold (plan amendment required)")
     kappa = ev.get("test_kappa") or {}
     for s in smells:
         k = kappa.get(s)

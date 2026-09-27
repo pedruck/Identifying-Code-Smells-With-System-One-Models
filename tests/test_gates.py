@@ -37,6 +37,9 @@ def test_primary_gate_passes_only_with_all_evidence(tmp_path):
     assert not gates.primary_test_gate(_cfg(tmp_path, kappa=0.5), dec, sup)["pass"]
     assert not gates.primary_test_gate(_cfg(tmp_path, gate0=False), dec, sup)["pass"]
     cfg = _cfg(tmp_path)
+    ev = json.load(open(cfg["dataset"]["gate_b_evidence"]))
+    json.dump({**ev, "machine_reviewers": ["llm1"]}, open(cfg["dataset"]["gate_b_evidence"], "w"))
+    assert not gates.primary_test_gate(cfg, dec, sup)["pass"]         # LLM-assisted test labels are silver
     cfg["dataset"]["gate_b_evidence"] = str(tmp_path / "missing.json")
     assert gates.failures(gates.primary_test_gate(cfg, dec, sup))
 

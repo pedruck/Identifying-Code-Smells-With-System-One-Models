@@ -10,3 +10,9 @@ external/
 checkpoints/
 *.npz
 *.pt
+# labelling sheets hold third-party code and the blind key; commit only batch_manifest.json and split_reservation.json
+data/annotation/**/*_batch*.md
+data/annotation/**/*_batch*.csv
+data/annotation/**/KEY_do_not_share.csv
+data/annotation/**/selected.parquet
+data/gold_pool/
