@@ -31,12 +31,21 @@ def _strata(row, smells) -> Counter:
 
 
 def assign_splits(df: pd.DataFrame, smells, seed: int, ratios: dict | None = None,
-                  group_col: str = "split_group") -> pd.Series:
+                  group_col: str = "split_group", reserved_test_families: set | None = None) -> pd.Series:
+    """``reserved_test_families`` (from ``annotation.write_batches``) pins every group that contains one of
+    those repository families to test, and the remaining groups are divided between the other splits.
+    The reservation is made before labelling, so the double-reviewed items are exactly the test set."""
     ratios = ratios or DEFAULT_RATIOS
+    pinned = {}
+    if reserved_test_families:
+        pinned = {g: "test" for g, f in zip(df[group_col], df["repository_family_id"]) if f in reserved_test_families}
+        rest = {k: v for k, v in ratios.items() if k != "test"}
+        ratios = {k: v / sum(rest.values()) for k, v in rest.items()}
     names = list(ratios)
     prof: dict[str, Counter] = defaultdict(Counter)
     for _, row in df.iterrows():
-        prof[row[group_col]] += _strata(row, smells)
+        if row[group_col] not in pinned:
+            prof[row[group_col]] += _strata(row, smells)
     total = sum(prof.values(), Counter())
 
     def order_key(g):
@@ -44,7 +53,7 @@ def assign_splits(df: pd.DataFrame, smells, seed: int, ratios: dict | None = Non
         return (-prof[g][("__rows__",)], h)
 
     have = {n: Counter() for n in names}
-    where = {}
+    where = dict(pinned)
     for g in sorted(prof, key=order_key):
         best, best_score = None, None
         for n in names:

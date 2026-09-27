@@ -86,3 +86,29 @@ def test_dedupe_exact_keeps_first_and_drops_conflicts():
     assert sorted(kept["sample_id"]) == ["a", "e"]
     assert dict(zip(rep["sample_id"], rep["reason"])) == {
         "b": "exact_duplicate", "c": "exact_duplicate_label_conflict", "d": "exact_duplicate_label_conflict"}
+
+
+def test_reserved_test_families_are_pinned_to_test():
+    df = leakage.add_hashes(_frame())
+    reserved = {"github.com/o/r0", "github.com/o/r7", "github.com/o/r13"}
+    df["split_group"], _ = leakage.split_groups(df)
+    s = split.assign_splits(df, ["long_method"], seed=3, reserved_test_families=reserved)
+    # test is exactly the leakage groups that touch a reserved family (renamed python clones span families)
+    touched = set(df.loc[df["repository_family_id"].isin(reserved), "split_group"])
+    assert (df["split_group"].isin(touched) == (s == "test")).all()
+    rest = s[s != "test"].value_counts(normalize=True)
+    assert abs(rest["train"] - 0.70 / 0.85) < 0.08
+    b = split.assign_splits(df.sample(frac=1, random_state=2).sort_index(), ["long_method"], seed=3,
+                            reserved_test_families=reserved)
+    assert (s == b).all()
+
+
+def test_reservation_pulls_duplicates_of_reserved_code_into_test():
+    df = _frame()
+    df.loc[len(df)] = {"sample_id": "clone", "repository_family_id": "github.com/x/copy", "language": "java",
+                       "code": "// copied\n" + df.iloc[0]["code"], "labels": {"long_method": {"status": NEGATIVE}}}
+    df = leakage.add_hashes(df)
+    df["split_group"], _ = leakage.split_groups(df)
+    df["split"] = split.assign_splits(df, ["long_method"], seed=3, reserved_test_families={"github.com/o/r0"})
+    assert df.set_index("sample_id").loc["clone", "split"] == "test"
+    assert leakage.assert_no_leakage(df) == []

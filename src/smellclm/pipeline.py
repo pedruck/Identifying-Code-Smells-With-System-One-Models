@@ -124,7 +124,13 @@ def stage_split(exp: experiment.Experiment, df: pd.DataFrame) -> pd.DataFrame:
     removed.to_parquet(exp.path("exact_duplicates_removed.parquet"), index=False)
     groups, rep = leakage.split_groups(df, cfg["split"]["near_duplicate_jaccard"])
     df["split_group"] = groups
-    df["split"] = split.assign_splits(df, cfg["smells"], cfg["split"]["seed"], cfg["split"]["ratios"])
+    res_path = cfg["split"].get("reservation")
+    reserved = None
+    if cfg["dataset"]["mode"] == "primary" and res_path:
+        with open(res_path) as f:
+            reserved = set(json.load(f)["test_families"])
+    df["split"] = split.assign_splits(df, cfg["smells"], cfg["split"]["seed"], cfg["split"]["ratios"],
+                                      reserved_test_families=reserved)
     near = [(a, b) for a, b, k in zip(rep["sample_a"], rep["sample_b"], rep["kind"]) if k == "near"]
     problems = leakage.assert_no_leakage(df, pairs=near)
     support = split.support_gates(df, cfg["smells"], cfg["languages"], **cfg["support"])
@@ -132,6 +138,7 @@ def stage_split(exp: experiment.Experiment, df: pd.DataFrame) -> pd.DataFrame:
     rep.to_parquet(exp.path("duplicate_report.parquet"), index=False)
     m = split.manifest(df, cfg["split"]["seed"], {"leakage_problems": problems, "support": support,
                                                   "gold_test_support": gold_support,
+                                                  "reserved_test_families": sorted(reserved or []),
                                                   "exact_duplicates_removed": len(removed)})
     exp.write_json("split_manifest.json", m)
     exp.write("split_manifest.sha256", m["checksum"] + "\n")

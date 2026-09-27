@@ -43,7 +43,8 @@
       "val": 0.15,
       "test": 0.15
     },
-    "near_duplicate_jaccard": 0.8
+    "near_duplicate_jaccard": 0.8,
+    "reservation": "data/annotation/stage2/split_reservation.json"
   },
   "support": {
     "per_smell": 50,
@@ -79,5 +80,20 @@
       "typescript"
     ],
     "note": "stage 10 runs only when Gate F passes (confirmatory primary result + success rule) and enabled is true"
+  },
+  "annotation": {
+    "note": "python -m smellclm.annotation {resolve,mine,batches,agreement,finalize} --config configs/stage2.json; see docs/labelling_guide.md",
+    "targets": {
+      "test": {
+        "likely_positive": 35,
+        "borderline": 20,
+        "likely_negative": 35
+      },
+      "trainval": {
+        "likely_positive": 60,
+        "borderline": 30,
+        "likely_negative": 60
+      }
+    }
   }
 }

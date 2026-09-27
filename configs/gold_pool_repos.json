@@ -1,0 +1,50 @@
+{
+  "description": "Gold-stratum candidate pool (plan sections 6, 7). Permissively licensed, actively maintained repositories, eight independent families per language so that whole families can be reserved for the locked test set. `commit` and `license` are filled by `python -m smellclm.annotation resolve --config configs/stage1.json` and must not be edited by hand afterwards; `mine` refuses unpinned entries. Overlap with the auxiliary corpora is handled at split time: rows sharing a repository family or a (near-)duplicate are grouped, so a reserved test family pulls every such row into test.",
+  "resolved_at": null,
+  "repositories": [
+    {"url": "https://github.com/google/gson", "language": "java", "commit": null, "license": null},
+    {"url": "https://github.com/apache/commons-lang", "language": "java", "commit": null, "license": null},
+    {"url": "https://github.com/apache/commons-io", "language": "java", "commit": null, "license": null},
+    {"url": "https://github.com/apache/commons-collections", "language": "java", "commit": null, "license": null},
+    {"url": "https://github.com/jhy/jsoup", "language": "java", "commit": null, "license": null},
+    {"url": "https://github.com/FasterXML/jackson-core", "language": "java", "commit": null, "license": null},
+    {"url": "https://github.com/mockito/mockito", "language": "java", "commit": null, "license": null},
+    {"url": "https://github.com/zxing/zxing", "language": "java", "commit": null, "license": null},
+
+    {"url": "https://github.com/psf/requests", "language": "python", "commit": null, "license": null},
+    {"url": "https://github.com/pallets/flask", "language": "python", "commit": null, "license": null},
+    {"url": "https://github.com/pallets/click", "language": "python", "commit": null, "license": null},
+    {"url": "https://github.com/scrapy/scrapy", "language": "python", "commit": null, "license": null},
+    {"url": "https://github.com/encode/httpx", "language": "python", "commit": null, "license": null},
+    {"url": "https://github.com/sqlalchemy/sqlalchemy", "language": "python", "commit": null, "license": null},
+    {"url": "https://github.com/django/django", "language": "python", "commit": null, "license": null},
+    {"url": "https://github.com/tornadoweb/tornado", "language": "python", "commit": null, "license": null},
+
+    {"url": "https://github.com/nlohmann/json", "language": "cpp", "commit": null, "license": null},
+    {"url": "https://github.com/google/leveldb", "language": "cpp", "commit": null, "license": null},
+    {"url": "https://github.com/google/snappy", "language": "cpp", "commit": null, "license": null},
+    {"url": "https://github.com/google/re2", "language": "cpp", "commit": null, "license": null},
+    {"url": "https://github.com/gabime/spdlog", "language": "cpp", "commit": null, "license": null},
+    {"url": "https://github.com/catchorg/Catch2", "language": "cpp", "commit": null, "license": null},
+    {"url": "https://github.com/yhirose/cpp-httplib", "language": "cpp", "commit": null, "license": null},
+    {"url": "https://github.com/bitcoin/bitcoin", "language": "cpp", "commit": null, "license": null},
+
+    {"url": "https://github.com/expressjs/express", "language": "javascript", "commit": null, "license": null},
+    {"url": "https://github.com/axios/axios", "language": "javascript", "commit": null, "license": null},
+    {"url": "https://github.com/mrdoob/three.js", "language": "javascript", "commit": null, "license": null},
+    {"url": "https://github.com/webpack/webpack", "language": "javascript", "commit": null, "license": null},
+    {"url": "https://github.com/eslint/eslint", "language": "javascript", "commit": null, "license": null},
+    {"url": "https://github.com/moment/moment", "language": "javascript", "commit": null, "license": null},
+    {"url": "https://github.com/jquery/jquery", "language": "javascript", "commit": null, "license": null},
+    {"url": "https://github.com/prettier/prettier", "language": "javascript", "commit": null, "license": null},
+
+    {"url": "https://github.com/vuejs/core", "language": "typescript", "commit": null, "license": null},
+    {"url": "https://github.com/nestjs/nest", "language": "typescript", "commit": null, "license": null},
+    {"url": "https://github.com/typeorm/typeorm", "language": "typescript", "commit": null, "license": null},
+    {"url": "https://github.com/colinhacks/zod", "language": "typescript", "commit": null, "license": null},
+    {"url": "https://github.com/date-fns/date-fns", "language": "typescript", "commit": null, "license": null},
+    {"url": "https://github.com/reduxjs/redux-toolkit", "language": "typescript", "commit": null, "license": null},
+    {"url": "https://github.com/angular/angular", "language": "typescript", "commit": null, "license": null},
+    {"url": "https://github.com/microsoft/vscode", "language": "typescript", "commit": null, "license": null}
+  ]
+}
