@@ -18,6 +18,11 @@ no manual dataset upload, config edit, Paperclip login, or notebook-cell edit. N
 is needed for GitHub, PyPI and Hugging Face model downloads. The local host has no suitable
 NVIDIA GPU, so full GPU execution must be verified in Colab.
 
+If a previous Colab run failed, reopen the latest notebook from GitHub, restart the
+runtime, then choose **Run all**. The setup cell updates an existing clean clone;
+restarting also clears Python modules imported from an older checkout. Each run
+creates a new directory under `runs/`, so prior diagnostics remain available.
+
 The committed [`data/pilot/pilot.parquet`](data/pilot/pilot.parquet) is a frozen 440-row subset of
 real Java, Python and C++ code: ENASE 2026 positives plus provisional Stage 1 LLM-labelled
 negatives. [`data/pilot/manifest.json`](data/pilot/manifest.json) records archive and sheet

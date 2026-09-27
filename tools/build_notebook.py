@@ -25,6 +25,8 @@ REPO_URL = "https://github.com/pedruck/Identifying-Code-Smells-With-System-One-M
 WORKDIR = "/content/smellclm" if os.path.isdir("/content") else os.getcwd()
 if not os.path.isfile(os.path.join(WORKDIR, "pyproject.toml")):
     subprocess.run(["git", "clone", "--quiet", REPO_URL, WORKDIR], check=True)
+elif os.path.isdir(os.path.join(WORKDIR, ".git")):
+    subprocess.run(["git", "-C", WORKDIR, "pull", "--ff-only"], check=True)
 os.chdir(WORKDIR)
 subprocess.run(["bash", "tools/setup_clm.sh", "--install"], check=True)
 subprocess.run([sys.executable, "-m", "pip", "install", "-q", "-e", ".[gpu]"], check=True)
