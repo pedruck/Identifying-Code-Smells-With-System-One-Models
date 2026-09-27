@@ -1,0 +1,359 @@
+{
+  "annotation_version": "annotation/1",
+  "assignments": {
+    "A": 654,
+    "llm1": 1371
+  },
+  "bands": {
+    "long_method": {
+      "borderline": [
+        25,
+        34
+      ],
+      "likely_negative": [
+        8,
+        24
+      ],
+      "likely_positive": [
+        35,
+        null
+      ]
+    },
+    "long_parameter_list": {
+      "borderline": [
+        5,
+        5
+      ],
+      "likely_negative": [
+        2,
+        4
+      ],
+      "likely_positive": [
+        6,
+        null
+      ]
+    }
+  },
+  "batches": [
+    {
+      "batch": "llm1_batch01",
+      "items": 40,
+      "reviewer": "llm1"
+    },
+    {
+      "batch": "llm1_batch02",
+      "items": 40,
+      "reviewer": "llm1"
+    },
+    {
+      "batch": "llm1_batch03",
+      "items": 40,
+      "reviewer": "llm1"
+    },
+    {
+      "batch": "llm1_batch04",
+      "items": 40,
+      "reviewer": "llm1"
+    },
+    {
+      "batch": "llm1_batch05",
+      "items": 40,
+      "reviewer": "llm1"
+    },
+    {
+      "batch": "llm1_batch06",
+      "items": 40,
+      "reviewer": "llm1"
+    },
+    {
+      "batch": "llm1_batch07",
+      "items": 40,
+      "reviewer": "llm1"
+    },
+    {
+      "batch": "llm1_batch08",
+      "items": 40,
+      "reviewer": "llm1"
+    },
+    {
+      "batch": "llm1_batch09",
+      "items": 40,
+      "reviewer": "llm1"
+    },
+    {
+      "batch": "llm1_batch10",
+      "items": 40,
+      "reviewer": "llm1"
+    },
+    {
+      "batch": "llm1_batch11",
+      "items": 40,
+      "reviewer": "llm1"
+    },
+    {
+      "batch": "llm1_batch12",
+      "items": 40,
+      "reviewer": "llm1"
+    },
+    {
+      "batch": "llm1_batch13",
+      "items": 40,
+      "reviewer": "llm1"
+    },
+    {
+      "batch": "llm1_batch14",
+      "items": 40,
+      "reviewer": "llm1"
+    },
+    {
+      "batch": "llm1_batch15",
+      "items": 40,
+      "reviewer": "llm1"
+    },
+    {
+      "batch": "llm1_batch16",
+      "items": 40,
+      "reviewer": "llm1"
+    },
+    {
+      "batch": "llm1_batch17",
+      "items": 40,
+      "reviewer": "llm1"
+    },
+    {
+      "batch": "llm1_batch18",
+      "items": 40,
+      "reviewer": "llm1"
+    },
+    {
+      "batch": "llm1_batch19",
+      "items": 40,
+      "reviewer": "llm1"
+    },
+    {
+      "batch": "llm1_batch20",
+      "items": 40,
+      "reviewer": "llm1"
+    },
+    {
+      "batch": "llm1_batch21",
+      "items": 40,
+      "reviewer": "llm1"
+    },
+    {
+      "batch": "llm1_batch22",
+      "items": 40,
+      "reviewer": "llm1"
+    },
+    {
+      "batch": "llm1_batch23",
+      "items": 40,
+      "reviewer": "llm1"
+    },
+    {
+      "batch": "llm1_batch24",
+      "items": 40,
+      "reviewer": "llm1"
+    },
+    {
+      "batch": "llm1_batch25",
+      "items": 40,
+      "reviewer": "llm1"
+    },
+    {
+      "batch": "llm1_batch26",
+      "items": 40,
+      "reviewer": "llm1"
+    },
+    {
+      "batch": "llm1_batch27",
+      "items": 40,
+      "reviewer": "llm1"
+    },
+    {
+      "batch": "llm1_batch28",
+      "items": 40,
+      "reviewer": "llm1"
+    },
+    {
+      "batch": "llm1_batch29",
+      "items": 40,
+      "reviewer": "llm1"
+    },
+    {
+      "batch": "llm1_batch30",
+      "items": 40,
+      "reviewer": "llm1"
+    },
+    {
+      "batch": "llm1_batch31",
+      "items": 40,
+      "reviewer": "llm1"
+    },
+    {
+      "batch": "llm1_batch32",
+      "items": 40,
+      "reviewer": "llm1"
+    },
+    {
+      "batch": "llm1_batch33",
+      "items": 40,
+      "reviewer": "llm1"
+    },
+    {
+      "batch": "llm1_batch34",
+      "items": 40,
+      "reviewer": "llm1"
+    },
+    {
+      "batch": "llm1_batch35",
+      "items": 11,
+      "reviewer": "llm1"
+    },
+    {
+      "batch": "A_batch01",
+      "items": 40,
+      "reviewer": "A"
+    },
+    {
+      "batch": "A_batch02",
+      "items": 40,
+      "reviewer": "A"
+    },
+    {
+      "batch": "A_batch03",
+      "items": 40,
+      "reviewer": "A"
+    },
+    {
+      "batch": "A_batch04",
+      "items": 40,
+      "reviewer": "A"
+    },
+    {
+      "batch": "A_batch05",
+      "items": 40,
+      "reviewer": "A"
+    },
+    {
+      "batch": "A_batch06",
+      "items": 40,
+      "reviewer": "A"
+    },
+    {
+      "batch": "A_batch07",
+      "items": 40,
+      "reviewer": "A"
+    },
+    {
+      "batch": "A_batch08",
+      "items": 40,
+      "reviewer": "A"
+    },
+    {
+      "batch": "A_batch09",
+      "items": 40,
+      "reviewer": "A"
+    },
+    {
+      "batch": "A_batch10",
+      "items": 40,
+      "reviewer": "A"
+    },
+    {
+      "batch": "A_batch11",
+      "items": 40,
+      "reviewer": "A"
+    },
+    {
+      "batch": "A_batch12",
+      "items": 40,
+      "reviewer": "A"
+    },
+    {
+      "batch": "A_batch13",
+      "items": 40,
+      "reviewer": "A"
+    },
+    {
+      "batch": "A_batch14",
+      "items": 40,
+      "reviewer": "A"
+    },
+    {
+      "batch": "A_batch15",
+      "items": 40,
+      "reviewer": "A"
+    },
+    {
+      "batch": "A_batch16",
+      "items": 40,
+      "reviewer": "A"
+    },
+    {
+      "batch": "A_batch17",
+      "items": 14,
+      "reviewer": "A"
+    }
+  ],
+  "created_at": "2026-09-27T19:29:52Z",
+  "double_review_frac_trainval": 0.2,
+  "double_reviewed_items": 654,
+  "pool": "data/gold_pool/stage1_pool.parquet",
+  "reserved_test_families": {
+    "cpp": [
+      "github.com/jbeder/yaml-cpp",
+      "github.com/nlohmann/json"
+    ],
+    "java": [
+      "github.com/jhy/jsoup",
+      "github.com/mockito/mockito"
+    ],
+    "python": [
+      "github.com/scrapy/scrapy",
+      "github.com/sqlalchemy/sqlalchemy"
+    ]
+  },
+  "reviewers": [
+    "llm1",
+    "A"
+  ],
+  "rubric_version": "rubric/1",
+  "seed": 20260927,
+  "selected": {
+    "by_partition_language": {
+      "test/cpp": 138,
+      "test/java": 156,
+      "test/python": 180,
+      "trainval/cpp": 297,
+      "trainval/java": 300,
+      "trainval/python": 300
+    },
+    "by_stratum": {
+      "long_method:borderline": 150,
+      "long_method:likely_negative": 285,
+      "long_method:likely_positive": 285,
+      "long_parameter_list:borderline": 136,
+      "long_parameter_list:likely_negative": 285,
+      "long_parameter_list:likely_positive": 230
+    },
+    "total": 1371
+  },
+  "smells": [
+    "long_method",
+    "long_parameter_list"
+  ],
+  "targets": {
+    "test": {
+      "borderline": 20,
+      "likely_negative": 35,
+      "likely_positive": 35
+    },
+    "trainval": {
+      "borderline": 30,
+      "likely_negative": 60,
+      "likely_positive": 60
+    }
+  },
+  "test_frac_families": 0.25
+}

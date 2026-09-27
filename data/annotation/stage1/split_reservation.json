@@ -1,0 +1,25 @@
+{
+  "by_language": {
+    "cpp": [
+      "github.com/jbeder/yaml-cpp",
+      "github.com/nlohmann/json"
+    ],
+    "java": [
+      "github.com/jhy/jsoup",
+      "github.com/mockito/mockito"
+    ],
+    "python": [
+      "github.com/scrapy/scrapy",
+      "github.com/sqlalchemy/sqlalchemy"
+    ]
+  },
+  "seed": 20260927,
+  "test_families": [
+    "github.com/jbeder/yaml-cpp",
+    "github.com/jhy/jsoup",
+    "github.com/mockito/mockito",
+    "github.com/nlohmann/json",
+    "github.com/scrapy/scrapy",
+    "github.com/sqlalchemy/sqlalchemy"
+  ]
+}

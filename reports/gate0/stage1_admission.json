@@ -1,0 +1,253 @@
+{
+  "created_at": "2026-09-27T19:27:34Z",
+  "criteria": "every repository pinned to a full commit SHA, SPDX licence in the allow-list, licence file present at that commit; labels are produced by our own rubric/1 annotation",
+  "datasets": [
+    "gold-pool"
+  ],
+  "extraction_version": "extract/1",
+  "manifest": "data/gold_pool/stage1_repos.json",
+  "pass": true,
+  "report": "reports/gate0/dataset_admission_report.md",
+  "repositories": [
+    {
+      "commit": "854c8255b625cf1e13c701a83ea9ccb4caaa576a",
+      "files": 103,
+      "functions": 877,
+      "language": "java",
+      "license": "Apache-2.0",
+      "license_allowed": true,
+      "license_file": "LICENSE",
+      "url": "https://github.com/google/gson"
+    },
+    {
+      "commit": "29624cdb50ecd794207d561345b2fc9ca3a9d326",
+      "files": 264,
+      "functions": 4000,
+      "language": "java",
+      "license": "Apache-2.0",
+      "license_allowed": true,
+      "license_file": "LICENSE.txt",
+      "url": "https://github.com/apache/commons-lang"
+    },
+    {
+      "commit": "2c6bf8dea065e96651661d5e277e35b2f343d879",
+      "files": 272,
+      "functions": 2962,
+      "language": "java",
+      "license": "Apache-2.0",
+      "license_allowed": true,
+      "license_file": "LICENSE.txt",
+      "url": "https://github.com/apache/commons-io"
+    },
+    {
+      "commit": "a350e2c73bf61230afad1bf6f3dc770b2ddb36ee",
+      "files": 367,
+      "functions": 4000,
+      "language": "java",
+      "license": "Apache-2.0",
+      "license_allowed": true,
+      "license_file": "LICENSE.txt",
+      "url": "https://github.com/apache/commons-collections"
+    },
+    {
+      "commit": "81718491972c21a911c5964b2cae06fdc201dfb3",
+      "files": 95,
+      "functions": 1963,
+      "language": "java",
+      "license": "MIT",
+      "license_allowed": true,
+      "license_file": "LICENSE",
+      "url": "https://github.com/jhy/jsoup"
+    },
+    {
+      "commit": "02d8bd9da2b4fac9e44c57fcd0c8124cf71d817a",
+      "files": 139,
+      "functions": 2194,
+      "language": "java",
+      "license": "Apache-2.0",
+      "license_allowed": true,
+      "license_file": "LICENSE",
+      "url": "https://github.com/FasterXML/jackson-core"
+    },
+    {
+      "commit": "116a4d6231dc35f90543060af41dcde00fe4e2ae",
+      "files": 515,
+      "functions": 1965,
+      "language": "java",
+      "license": "MIT",
+      "license_allowed": true,
+      "license_file": "LICENSE",
+      "url": "https://github.com/mockito/mockito"
+    },
+    {
+      "commit": "33dfdefcb35576612841e614d44ba9edc9aee2b5",
+      "files": 359,
+      "functions": 2317,
+      "language": "java",
+      "license": "Apache-2.0",
+      "license_allowed": true,
+      "license_file": "LICENSE",
+      "url": "https://github.com/zxing/zxing"
+    },
+    {
+      "commit": "611c6162cbc4ac2020a2f91c7cfa4f3abf9bbb60",
+      "files": 20,
+      "functions": 224,
+      "language": "python",
+      "license": "Apache-2.0",
+      "license_allowed": true,
+      "license_file": "LICENSE",
+      "url": "https://github.com/psf/requests"
+    },
+    {
+      "commit": "d73fa1cdcbd8b1465c151db8924ba58b1dd14e35",
+      "files": 24,
+      "functions": 341,
+      "language": "python",
+      "license": "BSD-3-Clause",
+      "license_allowed": true,
+      "license_file": "LICENSE.txt",
+      "url": "https://github.com/pallets/flask"
+    },
+    {
+      "commit": "06b2a678741131fd577ce170e23e5ca0aeba0309",
+      "files": 17,
+      "functions": 500,
+      "language": "python",
+      "license": "BSD-3-Clause",
+      "license_allowed": true,
+      "license_file": "LICENSE.txt",
+      "url": "https://github.com/pallets/click"
+    },
+    {
+      "commit": "e2c18d9dc2c65df7a09a7d7d91394e07a0ae5b3f",
+      "files": 195,
+      "functions": 1623,
+      "language": "python",
+      "license": "BSD-3-Clause",
+      "license_allowed": true,
+      "license_file": "LICENSE",
+      "url": "https://github.com/scrapy/scrapy"
+    },
+    {
+      "commit": "b5addb64f0161ff6bfe94c124ef76f6a1fba5254",
+      "files": 23,
+      "functions": 380,
+      "language": "python",
+      "license": "BSD-3-Clause",
+      "license_allowed": true,
+      "license_file": "LICENSE.md",
+      "url": "https://github.com/encode/httpx"
+    },
+    {
+      "commit": "65ea6bee82149495a57ea821e0934a9a5d0ded51",
+      "files": 233,
+      "functions": 4000,
+      "language": "python",
+      "license": "MIT",
+      "license_allowed": true,
+      "license_file": "LICENSE",
+      "url": "https://github.com/sqlalchemy/sqlalchemy"
+    },
+    {
+      "commit": "9e06baf2e4dd17834b5deaf3a3e6ae3bff2fcf26",
+      "files": 857,
+      "functions": 4000,
+      "language": "python",
+      "license": "BSD-3-Clause",
+      "license_allowed": true,
+      "license_file": "LICENSE",
+      "url": "https://github.com/django/django"
+    },
+    {
+      "commit": "d2bd3a854e16c47d4a16b68ab92207ec2cd9b51b",
+      "files": 52,
+      "functions": 1080,
+      "language": "python",
+      "license": "Apache-2.0",
+      "license_allowed": true,
+      "license_file": "LICENSE",
+      "url": "https://github.com/tornadoweb/tornado"
+    },
+    {
+      "commit": "373005f7accebb2eff11d2837c468094e3116b38",
+      "files": 52,
+      "functions": 1526,
+      "language": "cpp",
+      "license": "MIT",
+      "license_allowed": true,
+      "license_file": "LICENSE.MIT",
+      "url": "https://github.com/nlohmann/json"
+    },
+    {
+      "commit": "7ee830d02b623e8ffe0b95d59a74db1e58da04c5",
+      "files": 98,
+      "functions": 582,
+      "language": "cpp",
+      "license": "BSD-3-Clause",
+      "license_allowed": true,
+      "license_file": "LICENSE",
+      "url": "https://github.com/google/leveldb"
+    },
+    {
+      "commit": "ac13143d96b61cec419b49f76e58d2045aba8536",
+      "files": 49,
+      "functions": 186,
+      "language": "cpp",
+      "license": "Apache-2.0",
+      "license_allowed": true,
+      "license_file": "LICENSE",
+      "url": "https://github.com/google/benchmark"
+    },
+    {
+      "commit": "972a15cedd008d846f1a39b2e88ce48d7f166cbd",
+      "files": 46,
+      "functions": 350,
+      "language": "cpp",
+      "license": "BSD-3-Clause",
+      "license_allowed": true,
+      "license_file": "LICENSE",
+      "url": "https://github.com/google/re2"
+    },
+    {
+      "commit": "1e0876c671268661deb2628040e3959e1e9d6e69",
+      "files": 98,
+      "functions": 418,
+      "language": "cpp",
+      "license": "MIT",
+      "license_allowed": true,
+      "license_file": "LICENSE",
+      "url": "https://github.com/jbeder/yaml-cpp"
+    },
+    {
+      "commit": "222e233903d287cda4713fb08e1a959e8d71fd6d",
+      "files": 268,
+      "functions": 1581,
+      "language": "cpp",
+      "license": "BSL-1.0",
+      "license_allowed": true,
+      "license_file": "LICENSE.txt",
+      "url": "https://github.com/catchorg/Catch2"
+    },
+    {
+      "commit": "2fb2dbbe1e79b7c245d7149b0d414779b03827ce",
+      "files": 4,
+      "functions": 484,
+      "language": "cpp",
+      "license": "MIT",
+      "license_allowed": true,
+      "license_file": "LICENSE",
+      "url": "https://github.com/yhirose/cpp-httplib"
+    },
+    {
+      "commit": "ed7dd7cf4e1561a97edf72eba29a67b14e28c717",
+      "files": 1087,
+      "functions": 4000,
+      "language": "cpp",
+      "license": "MIT",
+      "license_allowed": true,
+      "license_file": "COPYING",
+      "url": "https://github.com/bitcoin/bitcoin"
+    }
+  ]
+}
