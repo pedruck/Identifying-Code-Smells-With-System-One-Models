@@ -1,0 +1,12 @@
+__pycache__/
+*.egg-info/
+.venv/
+venv/
+.pytest_cache/
+# experiment outputs, downloaded corpora, checkpoints and embedding caches
+runs/
+data/raw/
+external/
+checkpoints/
+*.npz
+*.pt

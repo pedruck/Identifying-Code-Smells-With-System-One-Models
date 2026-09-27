@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "smellclm"
+version = "0.1.0"
+description = "Code-smell verification experiments with the official CLM-v0.1-8B contrastive verifier"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+dependencies = [
+    "numpy>=1.24",
+    "pandas>=2.0",
+    "pyarrow>=14",
+]
+
+[project.optional-dependencies]
+# GPU stages (embedding, head scoring, fine-tuning) also need the official CLM
+# repository checked out at the pinned commit and installed with `pip install -e`.
+gpu = ["torch>=2.1", "transformers>=4.51", "huggingface_hub>=0.20"]
+dev = ["pytest>=8", "nbformat>=5"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
