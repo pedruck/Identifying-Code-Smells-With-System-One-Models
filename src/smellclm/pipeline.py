@@ -28,12 +28,20 @@ CONDITIONS = ("majority", "rules", "zero_shot", "finetuned")
 def stage_environment(exp: experiment.Experiment, allow_cpu_only: bool = False) -> dict:
     if exp.done("01_environment"):
         return json.load(open(exp.path("environment.json")))
-    env = experiment.environment()
-    env["clm_commit"] = official.checked_out_commit()
-    env["clm_pinned"] = exp.cfg["clm"]["repo_commit"]
-    feas = experiment.feasibility(env)
-    env["feasibility"] = feas
-    exp.write_json("environment.json", env)
+    # A failed pin or hardware check leaves the diagnostic on disk but does not
+    # mark the stage complete. Reuse it when the cell is retried so the original
+    # actionable error is shown instead of an immutable-output collision.
+    environment_path = exp.path("environment.json")
+    if os.path.exists(environment_path):
+        with open(environment_path) as f:
+            env = json.load(f)
+    else:
+        env = experiment.environment()
+        env["clm_commit"] = official.checked_out_commit()
+        env["clm_pinned"] = exp.cfg["clm"]["repo_commit"]
+        env["feasibility"] = experiment.feasibility(env)
+        exp.write_json("environment.json", env)
+    feas = env["feasibility"]
     if env["clm_commit"] != env["clm_pinned"]:
         raise RuntimeError(f"official CLM checkout {env['clm_commit']} != pinned {env['clm_pinned']}")
     if not feas["pass"] and not allow_cpu_only:
