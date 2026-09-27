@@ -30,6 +30,7 @@ elif os.path.isdir(os.path.join(WORKDIR, ".git")):
 os.chdir(WORKDIR)
 subprocess.run(["bash", "tools/setup_clm.sh", "--install"], check=True)
 subprocess.run([sys.executable, "-m", "pip", "install", "-q", "-e", ".[gpu]"], check=True)
+subprocess.run([sys.executable, "tools/check_gpu_stack.py"], check=True)
 sys.path.insert(0, os.path.join(WORKDIR, "src"))
 """)
 code("""

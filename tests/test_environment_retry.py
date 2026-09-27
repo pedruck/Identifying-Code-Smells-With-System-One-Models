@@ -1,8 +1,19 @@
 import json
+import sys
+import types
 
 import pytest
 
 from smellclm import experiment, pipeline
+
+
+def test_environment_detects_lazy_vllm_cuda_import_failure(monkeypatch):
+    # A top-level vllm import can succeed while vllm.inputs fails to load CUDA.
+    monkeypatch.setitem(sys.modules, "vllm", types.ModuleType("vllm"))
+    monkeypatch.setitem(sys.modules, "vllm.inputs", None)
+    env = experiment.environment()
+    assert env["packages"]["vllm"] == "unavailable: ModuleNotFoundError"
+    assert "vllm not importable" in experiment.feasibility(env)["reasons"]
 
 
 def test_environment_retry_preserves_original_hardware_error(tmp_path, monkeypatch):

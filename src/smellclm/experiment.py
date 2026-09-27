@@ -80,6 +80,9 @@ def environment() -> dict:
     for name in ("numpy", "pandas", "pyarrow", "torch", "transformers", "vllm", "huggingface_hub"):
         try:
             mod = __import__(name)
+            if name == "vllm":
+                # Top-level vllm is lazy; this import exposes missing CUDA libs.
+                from vllm.inputs import TokensPrompt  # noqa: F401
             pkgs[name] = getattr(mod, "__version__", "?")
         except Exception as e:           # noqa: BLE001 - record, never fail
             pkgs[name] = f"unavailable: {type(e).__name__}"

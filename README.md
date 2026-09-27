@@ -22,6 +22,9 @@ If a previous Colab run failed, reopen the latest notebook from GitHub, restart 
 runtime, then choose **Run all**. The setup cell updates an existing clean clone;
 restarting also clears Python modules imported from an older checkout. Each run
 creates a new directory under `runs/`, so prior diagnostics remain available.
+The setup pins vLLM 0.11.0 with PyTorch 2.8.0 (CUDA 12.8) and tests the actual
+vLLM CUDA import before preparing data. This avoids installing a newer CUDA 13
+wheel on a CUDA 12 Colab runtime.
 
 The committed [`data/pilot/pilot.parquet`](data/pilot/pilot.parquet) is a frozen 440-row subset of
 real Java, Python and C++ code: ENASE 2026 positives plus provisional Stage 1 LLM-labelled
