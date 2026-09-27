@@ -1,50 +1,246 @@
 {
   "description": "Gold-stratum candidate pool (plan sections 6, 7). Permissively licensed, actively maintained repositories, eight independent families per language so that whole families can be reserved for the locked test set. `commit` and `license` are filled by `python -m smellclm.annotation resolve --config configs/stage1.json` and must not be edited by hand afterwards; `mine` refuses unpinned entries. Overlap with the auxiliary corpora is handled at split time: rows sharing a repository family or a (near-)duplicate are grouped, so a reserved test family pulls every such row into test.",
-  "resolved_at": null,
   "repositories": [
-    {"url": "https://github.com/google/gson", "language": "java", "commit": null, "license": null},
-    {"url": "https://github.com/apache/commons-lang", "language": "java", "commit": null, "license": null},
-    {"url": "https://github.com/apache/commons-io", "language": "java", "commit": null, "license": null},
-    {"url": "https://github.com/apache/commons-collections", "language": "java", "commit": null, "license": null},
-    {"url": "https://github.com/jhy/jsoup", "language": "java", "commit": null, "license": null},
-    {"url": "https://github.com/FasterXML/jackson-core", "language": "java", "commit": null, "license": null},
-    {"url": "https://github.com/mockito/mockito", "language": "java", "commit": null, "license": null},
-    {"url": "https://github.com/zxing/zxing", "language": "java", "commit": null, "license": null},
-
-    {"url": "https://github.com/psf/requests", "language": "python", "commit": null, "license": null},
-    {"url": "https://github.com/pallets/flask", "language": "python", "commit": null, "license": null},
-    {"url": "https://github.com/pallets/click", "language": "python", "commit": null, "license": null},
-    {"url": "https://github.com/scrapy/scrapy", "language": "python", "commit": null, "license": null},
-    {"url": "https://github.com/encode/httpx", "language": "python", "commit": null, "license": null},
-    {"url": "https://github.com/sqlalchemy/sqlalchemy", "language": "python", "commit": null, "license": null},
-    {"url": "https://github.com/django/django", "language": "python", "commit": null, "license": null},
-    {"url": "https://github.com/tornadoweb/tornado", "language": "python", "commit": null, "license": null},
-
-    {"url": "https://github.com/nlohmann/json", "language": "cpp", "commit": null, "license": null},
-    {"url": "https://github.com/google/leveldb", "language": "cpp", "commit": null, "license": null},
-    {"url": "https://github.com/google/snappy", "language": "cpp", "commit": null, "license": null},
-    {"url": "https://github.com/google/re2", "language": "cpp", "commit": null, "license": null},
-    {"url": "https://github.com/gabime/spdlog", "language": "cpp", "commit": null, "license": null},
-    {"url": "https://github.com/catchorg/Catch2", "language": "cpp", "commit": null, "license": null},
-    {"url": "https://github.com/yhirose/cpp-httplib", "language": "cpp", "commit": null, "license": null},
-    {"url": "https://github.com/bitcoin/bitcoin", "language": "cpp", "commit": null, "license": null},
-
-    {"url": "https://github.com/expressjs/express", "language": "javascript", "commit": null, "license": null},
-    {"url": "https://github.com/axios/axios", "language": "javascript", "commit": null, "license": null},
-    {"url": "https://github.com/mrdoob/three.js", "language": "javascript", "commit": null, "license": null},
-    {"url": "https://github.com/webpack/webpack", "language": "javascript", "commit": null, "license": null},
-    {"url": "https://github.com/eslint/eslint", "language": "javascript", "commit": null, "license": null},
-    {"url": "https://github.com/moment/moment", "language": "javascript", "commit": null, "license": null},
-    {"url": "https://github.com/jquery/jquery", "language": "javascript", "commit": null, "license": null},
-    {"url": "https://github.com/prettier/prettier", "language": "javascript", "commit": null, "license": null},
-
-    {"url": "https://github.com/vuejs/core", "language": "typescript", "commit": null, "license": null},
-    {"url": "https://github.com/nestjs/nest", "language": "typescript", "commit": null, "license": null},
-    {"url": "https://github.com/typeorm/typeorm", "language": "typescript", "commit": null, "license": null},
-    {"url": "https://github.com/colinhacks/zod", "language": "typescript", "commit": null, "license": null},
-    {"url": "https://github.com/date-fns/date-fns", "language": "typescript", "commit": null, "license": null},
-    {"url": "https://github.com/reduxjs/redux-toolkit", "language": "typescript", "commit": null, "license": null},
-    {"url": "https://github.com/angular/angular", "language": "typescript", "commit": null, "license": null},
-    {"url": "https://github.com/microsoft/vscode", "language": "typescript", "commit": null, "license": null}
-  ]
+    {
+      "commit": "854c8255b625cf1e13c701a83ea9ccb4caaa576a",
+      "language": "java",
+      "license": "Apache-2.0",
+      "url": "https://github.com/google/gson"
+    },
+    {
+      "commit": "29624cdb50ecd794207d561345b2fc9ca3a9d326",
+      "language": "java",
+      "license": "Apache-2.0",
+      "url": "https://github.com/apache/commons-lang"
+    },
+    {
+      "commit": "2c6bf8dea065e96651661d5e277e35b2f343d879",
+      "language": "java",
+      "license": "Apache-2.0",
+      "url": "https://github.com/apache/commons-io"
+    },
+    {
+      "commit": "a350e2c73bf61230afad1bf6f3dc770b2ddb36ee",
+      "language": "java",
+      "license": "Apache-2.0",
+      "url": "https://github.com/apache/commons-collections"
+    },
+    {
+      "commit": "81718491972c21a911c5964b2cae06fdc201dfb3",
+      "language": "java",
+      "license": "MIT",
+      "url": "https://github.com/jhy/jsoup"
+    },
+    {
+      "commit": "02d8bd9da2b4fac9e44c57fcd0c8124cf71d817a",
+      "language": "java",
+      "license": "Apache-2.0",
+      "url": "https://github.com/FasterXML/jackson-core"
+    },
+    {
+      "commit": "116a4d6231dc35f90543060af41dcde00fe4e2ae",
+      "language": "java",
+      "license": "MIT",
+      "url": "https://github.com/mockito/mockito"
+    },
+    {
+      "commit": "33dfdefcb35576612841e614d44ba9edc9aee2b5",
+      "language": "java",
+      "license": "Apache-2.0",
+      "url": "https://github.com/zxing/zxing"
+    },
+    {
+      "commit": "611c6162cbc4ac2020a2f91c7cfa4f3abf9bbb60",
+      "language": "python",
+      "license": "Apache-2.0",
+      "url": "https://github.com/psf/requests"
+    },
+    {
+      "commit": "d73fa1cdcbd8b1465c151db8924ba58b1dd14e35",
+      "language": "python",
+      "license": "BSD-3-Clause",
+      "url": "https://github.com/pallets/flask"
+    },
+    {
+      "commit": "06b2a678741131fd577ce170e23e5ca0aeba0309",
+      "language": "python",
+      "license": "BSD-3-Clause",
+      "url": "https://github.com/pallets/click"
+    },
+    {
+      "commit": "e2c18d9dc2c65df7a09a7d7d91394e07a0ae5b3f",
+      "language": "python",
+      "license": "BSD-3-Clause",
+      "url": "https://github.com/scrapy/scrapy"
+    },
+    {
+      "commit": "b5addb64f0161ff6bfe94c124ef76f6a1fba5254",
+      "language": "python",
+      "license": "BSD-3-Clause",
+      "url": "https://github.com/encode/httpx"
+    },
+    {
+      "commit": "65ea6bee82149495a57ea821e0934a9a5d0ded51",
+      "language": "python",
+      "license": "MIT",
+      "url": "https://github.com/sqlalchemy/sqlalchemy"
+    },
+    {
+      "commit": "9e06baf2e4dd17834b5deaf3a3e6ae3bff2fcf26",
+      "language": "python",
+      "license": "BSD-3-Clause",
+      "url": "https://github.com/django/django"
+    },
+    {
+      "commit": "d2bd3a854e16c47d4a16b68ab92207ec2cd9b51b",
+      "language": "python",
+      "license": "Apache-2.0",
+      "url": "https://github.com/tornadoweb/tornado"
+    },
+    {
+      "commit": "373005f7accebb2eff11d2837c468094e3116b38",
+      "language": "cpp",
+      "license": "MIT",
+      "url": "https://github.com/nlohmann/json"
+    },
+    {
+      "commit": "7ee830d02b623e8ffe0b95d59a74db1e58da04c5",
+      "language": "cpp",
+      "license": "BSD-3-Clause",
+      "url": "https://github.com/google/leveldb"
+    },
+    {
+      "commit": "ac13143d96b61cec419b49f76e58d2045aba8536",
+      "language": "cpp",
+      "license": "Apache-2.0",
+      "url": "https://github.com/google/benchmark"
+    },
+    {
+      "commit": "972a15cedd008d846f1a39b2e88ce48d7f166cbd",
+      "language": "cpp",
+      "license": "BSD-3-Clause",
+      "url": "https://github.com/google/re2"
+    },
+    {
+      "commit": "1e0876c671268661deb2628040e3959e1e9d6e69",
+      "language": "cpp",
+      "license": "MIT",
+      "url": "https://github.com/jbeder/yaml-cpp"
+    },
+    {
+      "commit": "222e233903d287cda4713fb08e1a959e8d71fd6d",
+      "language": "cpp",
+      "license": "BSL-1.0",
+      "url": "https://github.com/catchorg/Catch2"
+    },
+    {
+      "commit": "2fb2dbbe1e79b7c245d7149b0d414779b03827ce",
+      "language": "cpp",
+      "license": "MIT",
+      "url": "https://github.com/yhirose/cpp-httplib"
+    },
+    {
+      "commit": "ed7dd7cf4e1561a97edf72eba29a67b14e28c717",
+      "language": "cpp",
+      "license": "MIT",
+      "url": "https://github.com/bitcoin/bitcoin"
+    },
+    {
+      "commit": "9a34acf03cb818ff3f8bc40e44176e277a25cbb9",
+      "language": "javascript",
+      "license": "MIT",
+      "url": "https://github.com/expressjs/express"
+    },
+    {
+      "commit": "2426e03ba9020be31ed013873423cea6b7cd2e67",
+      "language": "javascript",
+      "license": "MIT",
+      "url": "https://github.com/axios/axios"
+    },
+    {
+      "commit": "eccc4224b57a5954c485f5dd9103bdc467bd87b3",
+      "language": "javascript",
+      "license": "MIT",
+      "url": "https://github.com/mrdoob/three.js"
+    },
+    {
+      "commit": "e95be18b465117b38d4f260b608d4f084a500bdc",
+      "language": "javascript",
+      "license": "MIT",
+      "url": "https://github.com/webpack/webpack"
+    },
+    {
+      "commit": "93de066d4125f8df013d40305e8009f4634a5cba",
+      "language": "javascript",
+      "license": "MIT",
+      "url": "https://github.com/eslint/eslint"
+    },
+    {
+      "commit": "15b45d48a176312e8f34143c5a800090abf4787f",
+      "language": "javascript",
+      "license": "MIT",
+      "url": "https://github.com/moment/moment"
+    },
+    {
+      "commit": "5f8ed05417525bacc6a597a334a64835e2f9985b",
+      "language": "javascript",
+      "license": "MIT",
+      "url": "https://github.com/jquery/jquery"
+    },
+    {
+      "commit": "88d8e96365bf9885dfe795ac9a15cd69ad8356f0",
+      "language": "javascript",
+      "license": "MIT",
+      "url": "https://github.com/prettier/prettier"
+    },
+    {
+      "commit": "4ab865a848a1da3d10fb674f857e5fff13094644",
+      "language": "typescript",
+      "license": "MIT",
+      "url": "https://github.com/vuejs/core"
+    },
+    {
+      "commit": "b58554ea5857445841674963211e4f3f41b0a3a4",
+      "language": "typescript",
+      "license": "MIT",
+      "url": "https://github.com/nestjs/nest"
+    },
+    {
+      "commit": "f279fd1367f24ad108a1b11cf833f1620274088d",
+      "language": "typescript",
+      "license": "MIT",
+      "url": "https://github.com/typeorm/typeorm"
+    },
+    {
+      "commit": "2bf7b0630d5378033e90bcee82cb32b0fe04628e",
+      "language": "typescript",
+      "license": "MIT",
+      "url": "https://github.com/colinhacks/zod"
+    },
+    {
+      "commit": "ec0b0a47ab6c6ffabcb2ba6b80fa08c1410145a9",
+      "language": "typescript",
+      "license": "MIT",
+      "url": "https://github.com/trpc/trpc"
+    },
+    {
+      "commit": "c9dac937d77adc3bf04842a43955e81d0e7a46da",
+      "language": "typescript",
+      "license": "MIT",
+      "url": "https://github.com/reduxjs/redux-toolkit"
+    },
+    {
+      "commit": "319a3c4f3268f4f96ac4acdbb118737d2261e0be",
+      "language": "typescript",
+      "license": "MIT",
+      "url": "https://github.com/angular/angular"
+    },
+    {
+      "commit": "7fbceca31b927645eda89716dfa3459f2c938d78",
+      "language": "typescript",
+      "license": "MIT",
+      "url": "https://github.com/microsoft/vscode"
+    }
+  ],
+  "resolved_at": "2026-09-27T19:25:08Z"
 }

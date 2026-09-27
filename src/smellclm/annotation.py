@@ -27,6 +27,7 @@ import math
 import os
 import re
 import subprocess
+import urllib.error
 import urllib.request
 from collections import defaultdict
 
@@ -100,8 +101,16 @@ def resolve(manifest_path: str) -> dict:
             out = subprocess.run(["git", "ls-remote", r["url"], "HEAD"], capture_output=True, text=True, check=True)
             r["commit"] = out.stdout.split()[0]
         if not r.get("license"):
-            with urllib.request.urlopen(f"https://api.github.com/repos/{_slug(r['url'])}/license", timeout=30) as f:
-                r["license"] = (json.load(f).get("license") or {}).get("spdx_id") or "NOASSERTION"
+            req = urllib.request.Request(f"https://api.github.com/repos/{_slug(r['url'])}/license")
+            if os.environ.get("GITHUB_TOKEN"):  # the anonymous API allows only 60 requests per hour
+                req.add_header("Authorization", f"Bearer {os.environ['GITHUB_TOKEN']}")
+            try:
+                with urllib.request.urlopen(req, timeout=30) as f:
+                    r["license"] = (json.load(f).get("license") or {}).get("spdx_id") or "NOASSERTION"
+            except urllib.error.HTTPError as e:
+                if e.code != 404:  # 404 = GitHub detected no licence file
+                    raise
+                r["license"] = "NOASSERTION"
     m["resolved_at"] = m.get("resolved_at") or _now()
     _write_json(manifest_path, m)
     return m
