@@ -3,9 +3,39 @@
 Can the contrastive verifier **CLM-v0.1-8B** (frozen Qwen3-8B encoder plus trainable projection heads) be
 fine-tuned to detect code smells across programming languages, and does that transfer to unseen languages?
 
-This repository implements the approved experimental plan (PED-2, revision 4): a staged, resumable Colab
+This repository implements the approved experimental plan (PED-2, revision 4): a staged Colab
 pipeline built on the **unmodified official CLM release** (`Contrastive-LM/CLM` @ `bb42c6c`). It does not use
 generative SFT, LoRA or QLoRA.
+
+## Clone-and-run exploratory pilot
+
+In Google Colab, select a **GPU runtime with at least 22 GB VRAM** (A100 recommended), then
+open [`notebooks/clm_code_smell_pilot.ipynb`](notebooks/clm_code_smell_pilot.ipynb)
+from this repository and choose **Run all**. The first cell clones this repository if needed,
+installs the pinned official CLM release and dependencies, and later cells prepare, embed,
+fine-tune for one seed and two epochs, and print the exploratory report. A clean clone needs
+no manual dataset upload, config edit, Paperclip login, or notebook-cell edit. Network access
+is needed for GitHub, PyPI and Hugging Face model downloads. The local host has no suitable
+NVIDIA GPU, so full GPU execution must be verified in Colab.
+
+The committed [`data/pilot/pilot.parquet`](data/pilot/pilot.parquet) is a frozen 440-row subset of
+real Java, Python and C++ code: ENASE 2026 positives plus provisional Stage 1 LLM-labelled
+negatives. [`data/pilot/manifest.json`](data/pilot/manifest.json) records archive and sheet
+checksums, class counts, exclusions and attribution. Each smell has 80 positive and 80
+negative training examples, 20 of each in mixed validation, and 20 ENASE positives in a
+separate holdout. The held-out Stage 1 test rows and blind key are absent. The default run
+writes `runs/<timestamp>-<hash>/pilot_input_audit.json`, `embedding_manifest.json`,
+`training_history.json`, `calibration.json`, and `pilot_report.json`.
+
+**Interpretation:** mixed-validation macro-F1 and the balanced majority baseline test whether
+this short run shows a signal. The ENASE holdout gives positive recall only. Because positives
+and negatives come from different sources and all labels are provisional, neither result is
+validated smell-detection accuracy. The original confirmatory primary test gate remains in
+`src/smellclm/pipeline.py` and is not called by this notebook.
+
+ENASE dataset attribution: [ENASE 2026 Figshare corpus](https://figshare.com/s/2c89cce6b2d77c6f324f),
+shared under CC BY 4.0 as confirmed by the board. Individual upstream code repositories may
+have their own licenses; the manifest preserves source fields when supplied by ENASE.
 
 ## Status
 

@@ -1,0 +1,91 @@
+{
+  "name": "clm-real-code-exploratory-pilot",
+  "plan": "PED-2 plan revision 4",
+  "stage": "stage1",
+  "languages": [
+    "java",
+    "python",
+    "cpp"
+  ],
+  "smells": [
+    "long_method",
+    "long_parameter_list"
+  ],
+  "dataset": {
+    "mode": "exploratory_pilot",
+    "pilot_parquet": "data/pilot/pilot.parquet",
+    "note": "Silver labels only; holdout is ENASE positive recall, not binary test accuracy."
+  },
+  "label_quality": {
+    "min_reviewers": 2,
+    "min_test_kappa": 0.6,
+    "note": "locked test labels must be gold, adjudicated, and double-reviewed; weak labels are train/validation only"
+  },
+  "clm": {
+    "repo_commit": "bb42c6c5bf914fd449bed2f6ca65be80602cb1f7",
+    "hf_model_repo": "Contrastive-LM/CLM-v0.1-8B",
+    "head_file": "CLM_v0.1-8B.pt",
+    "embed_model": "Qwen/Qwen3-8B",
+    "max_len": 2048,
+    "truncation_policy": "exclude",
+    "embed_url": null,
+    "gpu_mem": 0.85
+  },
+  "split": {
+    "seed": 20260927,
+    "ratios": {
+      "train": 0.7,
+      "val": 0.15,
+      "test": 0.15
+    },
+    "near_duplicate_jaccard": 0.8,
+    "reservation": "data/annotation/stage1/split_reservation.json"
+  },
+  "support": {
+    "per_smell": 50,
+    "per_language": 50,
+    "per_cell": 20
+  },
+  "training": {
+    "seeds": [
+      1
+    ],
+    "targets": "hard",
+    "loss": "infonce",
+    "epochs": 2,
+    "patience": 1,
+    "val_frac": 0.1
+  },
+  "evaluation": {
+    "n_boot": 2000,
+    "min_gain": 0.05,
+    "max_smell_loss": 0.05
+  },
+  "prompt": {
+    "with_definition": true
+  },
+  "transfer": {
+    "enabled": false,
+    "languages": [
+      "java",
+      "python",
+      "cpp"
+    ],
+    "note": "stage 10 runs only when Gate F passes (confirmatory primary result + success rule) and enabled is true"
+  },
+  "annotation": {
+    "note": "python -m smellclm.annotation {resolve,mine,batches,agreement,finalize} --config configs/stage1.json; see docs/labelling_guide.md",
+    "targets": {
+      "test": {
+        "likely_positive": 35,
+        "borderline": 20,
+        "likely_negative": 35
+      },
+      "trainval": {
+        "likely_positive": 60,
+        "borderline": 30,
+        "likely_negative": 60
+      }
+    }
+  }
+}

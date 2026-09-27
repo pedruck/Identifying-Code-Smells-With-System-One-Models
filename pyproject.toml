@@ -18,7 +18,7 @@ dependencies = [
 [project.optional-dependencies]
 # GPU stages (embedding, head scoring, fine-tuning) also need the official CLM
 # repository checked out at the pinned commit and installed with `pip install -e`.
-gpu = ["torch>=2.1", "transformers>=4.51", "huggingface_hub>=0.20"]
+gpu = ["torch>=2.1", "transformers>=4.51", "huggingface_hub>=0.20", "vllm>=0.6"]
 dev = ["pytest>=8", "nbformat>=5"]
 
 [tool.setuptools.packages.find]
